@@ -1,0 +1,41 @@
+slam_toolbox:
+  ros__parameters:
+    # Frames (verifica con "ros2 run tf2_tools view_frames" o "ros2 topic echo /tf --once")
+    map_frame: map
+    odom_frame: odom
+    base_frame: base_link
+
+    # Tópico del LiDAR
+    scan_topic: /scan
+
+    # Modo: mapping (en línea) o localization (usando mapa guardado)
+    mode: mapping
+    use_sim_time: false
+
+    # Resolución y alcance del mapa
+    resolution: 0.05
+    max_laser_range: 20.0
+
+    # Configuración de publicación
+    transform_publish_period: 0.02
+    map_update_interval: 1.0
+    publish_period: 0.05
+
+    # Parámetros de matching
+    use_scan_matching: true
+    minimum_travel_distance: 0.1
+    minimum_travel_heading: 0.1
+    scan_buffer_size: 10
+    scan_buffer_maximum_scan_distance: 10.0
+
+    # Loop closure (para corregir el mapa cuando vuelve a lugares conocidos)
+    loop_closure: true
+    do_loop_closing: true
+
+    # Optimizador (valores por defecto de slam_toolbox con Ceres)
+    solver_plugin: solver_plugins::CeresSolver
+    ceres_linear_solver: SPARSE_NORMAL_CHOLESKY
+    ceres_preconditioner: SCHUR_JACOBI
+    ceres_trust_strategy: LEVENBERG_MARQUARDT
+    ceres_dogleg_type: TRADITIONAL_DOGLEG
+    ceres_loss_function: None
