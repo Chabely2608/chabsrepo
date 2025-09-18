@@ -13,3 +13,21 @@ sudo apt update
 sudo apt install code -y
 
 code
+-----------------------
+estas en el codigo
+<exec_depend>slam_toolbox</exec_depend>
+<exec_depend>launch</exec_depend>
+<exec_depend>launch_ros</exec_depend>
+<exec_depend>ament_index_python</exec_depend> <!-- lo usas por get_package_share_directory -->
+
+
+<buildtool_depend>ament_python</buildtool_depend>
+
+------------------
+nodo slam ->>
+sudo apt update
+sudo apt install ros-jazzy-slam-toolbox
+----
+sudo apt install ros-jazzy-rplidar-ros
+ros2 launch rplidar_ros rplidar.launch.py
+
